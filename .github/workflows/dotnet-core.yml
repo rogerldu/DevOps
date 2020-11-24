@@ -23,17 +23,11 @@ jobs:
       run: dotnet build /home/runner/work/DevOps/DevOps/MicroService/MicroService.csproj --configuration Release --no-restore
     - name: Test
       run: dotnet test /home/runner/work/DevOps/DevOps/Test.DevOps/Test.DevOps.csproj --no-restore --verbosity normal
-
-     # Run dotnet publish
-     - name: dotnet publish
-        run: |
-          dotnet build --configuration Release
-          dotnet publish /home/runner/work/DevOps/DevOps/MicroService/MicroService.csproj -c Release -o microservice
-          
-      # Deploy to Azure Web apps
-      - name: 'Run Azure webapp deploy action using publish profile credentials'
-        uses: azure/webapps-deploy@v2
-        with: 
+    - name: dotnet publish
+      run: dotnet publish /home/runner/work/DevOps/DevOps/MicroService/MicroService.csproj -c Release -o microservice
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
           app-name: devopstestrogerachig
           publish-profile: kv7szsGGjaLda88sfuhKRxdu9JbfBvtXJJFZDRyDhEwpSFWvRyLdR0Q8tWYS
-          package: './MicroService'
+          package: './DevOps'
