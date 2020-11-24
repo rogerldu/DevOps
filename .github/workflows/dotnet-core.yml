@@ -20,6 +20,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore /home/runner/work/DevOps/DevOps/MicroService/MicroService.csproj
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build /home/runner/work/DevOps/DevOps/MicroService/MicroService.csproj --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test /home/runner/work/DevOps/DevOps/Test.DevOps/Test.DevOps.csproj --no-restore --verbosity normal
