@@ -56,6 +56,8 @@ namespace MicroService
                     ValidateAudience = false
                 };
             });
+
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +74,10 @@ namespace MicroService
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
+
+            app.UseSwaggerUi3();
+
+            app.UseOpenApi();
 
             app.UseAuthentication();
 
