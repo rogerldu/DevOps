@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 3.1.301
     - name: Install dependencies
-      run: dotnet restore /home/runner/work/DevOps/MicroService/MicroService.csproj
+      run: dotnet restore /home/runner/work/DevOps/DevOps/MicroService/MicroService.csproj
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
